@@ -1,0 +1,257 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="[IFOR] IARC sim">
+	    <static>true</static>
+
+	    <link name="field">
+
+	    	<pose>0 0 0.01 0 0 0</pose>
+	    	<collision name="collision">
+		        <geometry>
+		        	<plane>
+		            	<normal>0 0 1</normal>
+		            	<size>50 50</size>
+		            </plane>
+		        </geometry>
+		        <surface>
+		        	<friction>
+		            	<ode>
+		            		<mu>100</mu>
+		             		<mu2>50</mu2>
+		           		</ode>
+		          	</friction>
+		      	</surface>
+	      	</collision>
+
+	    	<visual name="carpet">
+	        	<cast_shadows>false</cast_shadows>
+	        	<geometry>
+	          		<plane>
+	            		<normal>0 0 1</normal>
+	            		<size>20 20</size>
+	          		</plane>
+	        	</geometry>
+	        	<material>
+	          		<script>
+	            		<uri>model://iarc/materials/scripts/</uri>
+	            		<uri>model://iarc/materials/textures/</uri>
+	           			<name>IFOR_sim_ground</name>
+	          		</script>
+	        	</material>
+	      	</visual>
+
+	    </link>
+
+	<model name="irobot1">
+	  	<static>false</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose> 0 1 0 0 0 0</pose>
+	  	</include>
+	</model>
+	<model name="irobot2">
+	  	<static>false</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose> 0.6 0.8 0 0 0 0</pose>
+	  	</include>
+	</model>
+	<model name="irobot3">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0.95 0.3122 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name="irobot4">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0.95 -0.3122 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name="irobot5">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0.6 -0.8 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name="irobot6">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0 -1 0 0 0 0 </pose>
+	  	</include>
+ 	</model>
+	<model name="irobot7">
+	  	<static>false</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>-0.6 -0.8 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name="irobot8">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>-0.95 -0.3122 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name ="irobot9">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>-0.95 0.3122 0 0 0 0 </pose>
+	  	</include>
+	</model>
+	<model name ="irobot10">
+	  	<static>true</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>-0.6 0.8 0 0 0 0 </pose>
+	  	</include>
+	</model>
+
+
+
+
+	<model name="obstacle1">
+	  	<static>false</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>5 0 0 0 0 0</pose>
+	  	</include>
+	  	<link name ="objtop">
+		  	<pose>5 0 0.571163 0 0 0</pose>
+		  	<collision name ="col">
+		  		<geometry>
+		  			<cylinder>
+		  				<radius>0.051</radius>
+		  				<length>0.948</length>
+		  			</cylinder>
+		  		</geometry>
+		  	</collision>
+		  	<visual name ="obstacle1">
+		  		<geometry>
+		  			<cylinder>
+		  				<radius>0.07</radius>
+		  				<length>1</length>
+		  			</cylinder>
+		  		</geometry>
+		  	</visual>
+	  	</link>
+	  	<joint type="fixed" name ="top_connector">
+	  		<pose>0 0 0 0 0 0</pose>
+	  		<child>create::base</child>
+	  		<parent>objtop</parent>
+		</joint>
+	</model>
+
+	<model name="obstacle2">
+	  	<static>false</static>
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0 5 0 0 0 0</pose>
+	  	</include>
+	  	<link name ="objtop">
+	  	<pose>0 5 0.696163 0 0 0</pose>
+	  	<collision name ="col">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.051</radius>
+	  				<length>1.198</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</collision>
+	  	<visual name ="obstacle2">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.07</radius>
+	  				<length>1.25</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</visual>
+	  </link>
+	  <joint type="fixed" name ="top_connector">
+	  	<pose>0 0 0 0 0 0</pose>
+	  	<child>create::base</child>
+	  	<parent>objtop</parent>
+	  	
+	  </joint>
+	  	
+
+
+	 </model>
+	 <model name="obstacle3">
+	  	<static>false</static>
+
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>-5 0 0 0 0 0</pose>
+	  	</include>
+	  	<link name ="objtop">
+	  	<pose>-5 0 0.821163 0 0 0</pose>
+	  	<collision name ="col">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.051</radius>
+	  				<length>1.448</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</collision>
+	  	<visual name ="obstacle3">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.07</radius>
+	  				<length>1.5</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</visual>
+	  </link>
+	  <joint type="fixed" name ="top_connector">
+	  	<pose>0 0 0 0 0 0</pose>
+	  	<child>create::base</child>
+	  	<parent>objtop</parent>
+	  	
+	  </joint>
+	</model>
+	<model name="obstacle4">
+	  	<static>false</static>
+
+	  	<include>
+	  		<uri>model://create</uri>
+	  		<pose>0 -5 0 0 0 0</pose>
+	  	</include>
+	  	
+	  	<link name ="objtop">
+	  	<pose>0 -5 0.946163 0 0 0</pose>
+	  	<collision name ="col">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.051</radius>
+	  				<length>1.698</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</collision>
+	  	<visual name ="obstacle4">
+	  		<geometry>
+	  			<cylinder>
+	  				<radius>0.07</radius>
+	  				<length>1.75</length>
+	  			</cylinder>
+	  		</geometry>
+	  	</visual>
+	  </link>
+	  <joint type="fixed" name ="top_connector">
+	  	<pose>0 0 0 0 0 0</pose>
+	  	<child>create::base</child>
+	  	<parent>objtop</parent>
+	  	
+	  </joint>
+	 
+	</model>
+</model>
+
+
+</sdf>
